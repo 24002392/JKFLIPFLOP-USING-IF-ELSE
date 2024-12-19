@@ -1,5 +1,9 @@
 # JKFLIPFLOP-USING-IF-ELSE
 
+NAME : YASHWANTH K
+
+REGISTER NUMBER : 24002392
+
 **AIM:** 
 
 To implement  JK flipflop using verilog and validating their functionality using their functional tables
@@ -34,15 +38,80 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+Procedure
+
+1. Type the program in Quartus software.
+
+2. Compile and run the program.
+
+3. Generate the RTL schematic and save the logic diagram.
+
+4. Create nodes for inputs and outputs to generate the timing diagram.
+
+5. For different input combinations generate the timing diagram.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+
+module jk_flip_flop (
+ 
+    input wire J,      // J input
+
+    input wire K,      // K input
+ 
+    input wire clk,    // Clock signal
+
+    output reg Q,      // Output Q
+ 
+    output reg Qn      // Complement of Q
+
+);
+
+
+  
+    always @(posedge clk) begin
+ 
+        if (J == 0 && K == 0) begin
+  
+            
+            Q <= Q;       // No change
+          
+            Qn <= Qn;
+      
+        end else if (J == 0 && K == 1) begin
+        
+            Q <= 0;       // Reset
+     
+            Qn <= 1;
+     
+        end else if (J == 1 && K == 0) begin
+     
+            Q <= 1;       // Set
+     
+            Qn <= 0;
+      
+        end else if (J == 1 && K == 1) begin
+       
+            Q <= ~Q;      // Toggle
+      
+            Qn <= ~Qn;
+     
+        end
+   
+    end
+
+endmodule
+
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![jk flip flop](https://github.com/user-attachments/assets/e8248f40-8215-4b01-815d-d939f3f425f0)
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![jk flip flop wave](https://github.com/user-attachments/assets/f5a0b147-839f-4e2e-98da-4f9e006e0ab7)
+
 **RESULTS**
+
+Thus the JK flipflop using verilog is implemented and validated their functionality using their functional tables
